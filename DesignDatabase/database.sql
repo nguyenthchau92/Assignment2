@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2/13/2019 2:03:10 AM                         */
+/* Created on:     3/8/2019 12:18:45 AM                         */
 /*==============================================================*/
 
 
@@ -48,23 +48,23 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MAINTAINDATE') and o.name = 'FK_MAINTAIN_MAINTAIND_MOTOBIKE')
-alter table MAINTAINDATE
-   drop constraint FK_MAINTAIN_MAINTAIND_MOTOBIKE
+   where r.fkeyid = object_id('MAINTAIN') and o.name = 'FK_MAINTAIN_MAINTAIN_MECHANIS')
+alter table MAINTAIN
+   drop constraint FK_MAINTAIN_MAINTAIN_MECHANIS
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MAINTAINDATE') and o.name = 'FK_MAINTAIN_MAINTAIND_CUSTOMER')
-alter table MAINTAINDATE
-   drop constraint FK_MAINTAIN_MAINTAIND_CUSTOMER
+   where r.fkeyid = object_id('MAINTAIN') and o.name = 'FK_MAINTAIN_MAINTAIN2_SERVICE')
+alter table MAINTAIN
+   drop constraint FK_MAINTAIN_MAINTAIN2_SERVICE
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MAINTAINDATE') and o.name = 'FK_MAINTAIN_MAINTAIND_MECHANIS')
-alter table MAINTAINDATE
-   drop constraint FK_MAINTAIN_MAINTAIND_MECHANIS
+   where r.fkeyid = object_id('MAINTAIN') and o.name = 'FK_MAINTAIN_MAINTAIN3_MOTOBIKE')
+alter table MAINTAIN
+   drop constraint FK_MAINTAIN_MAINTAIN3_MOTOBIKE
 go
 
 if exists (select 1
@@ -72,6 +72,13 @@ if exists (select 1
    where r.fkeyid = object_id('MECHANISE') and o.name = 'FK_MECHANIS_INHERITAN_STAFF')
 alter table MECHANISE
    drop constraint FK_MECHANIS_INHERITAN_STAFF
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('OPERATIONCOST') and o.name = 'FK_OPERATIO_BRANCH_OP_BRANCH')
+alter table OPERATIONCOST
+   drop constraint FK_OPERATIO_BRANCH_OP_BRANCH
 go
 
 if exists (select 1
@@ -86,6 +93,13 @@ if exists (select 1
    where r.fkeyid = object_id('SALER') and o.name = 'FK_SALER_INHERITAN_STAFF')
 alter table SALER
    drop constraint FK_SALER_INHERITAN_STAFF
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SERVICE') and o.name = 'FK_SERVICE_CUSTOMER__CUSTOMER')
+alter table SERVICE
+   drop constraint FK_SERVICE_CUSTOMER__CUSTOMER
 go
 
 if exists (select 1
@@ -184,36 +198,36 @@ go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('MAINTAINDATE')
-            and   name  = 'MAINTAINDATE_FK'
+           where  id    = object_id('MAINTAIN')
+            and   name  = 'MAINTAIN_FK'
             and   indid > 0
             and   indid < 255)
-   drop index MAINTAINDATE.MAINTAINDATE_FK
+   drop index MAINTAIN.MAINTAIN_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('MAINTAINDATE')
-            and   name  = 'MAINTAINDATE3_FK'
+           where  id    = object_id('MAINTAIN')
+            and   name  = 'MAINTAIN3_FK'
             and   indid > 0
             and   indid < 255)
-   drop index MAINTAINDATE.MAINTAINDATE3_FK
+   drop index MAINTAIN.MAINTAIN3_FK
 go
 
 if exists (select 1
             from  sysindexes
-           where  id    = object_id('MAINTAINDATE')
-            and   name  = 'MAINTAINDATE2_FK'
+           where  id    = object_id('MAINTAIN')
+            and   name  = 'MAINTAIN2_FK'
             and   indid > 0
             and   indid < 255)
-   drop index MAINTAINDATE.MAINTAINDATE2_FK
+   drop index MAINTAIN.MAINTAIN2_FK
 go
 
 if exists (select 1
             from  sysobjects
-           where  id = object_id('MAINTAINDATE')
+           where  id = object_id('MAINTAIN')
             and   type = 'U')
-   drop table MAINTAINDATE
+   drop table MAINTAIN
 go
 
 if exists (select 1
@@ -228,6 +242,22 @@ if exists (select 1
            where  id = object_id('MOTOBIKE')
             and   type = 'U')
    drop table MOTOBIKE
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('OPERATIONCOST')
+            and   name  = 'BRANCH_OPERATIONCOST_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index OPERATIONCOST.BRANCH_OPERATIONCOST_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('OPERATIONCOST')
+            and   type = 'U')
+   drop table OPERATIONCOST
 go
 
 if exists (select 1
@@ -251,6 +281,22 @@ if exists (select 1
            where  id = object_id('SALER')
             and   type = 'U')
    drop table SALER
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('SERVICE')
+            and   name  = 'CUSTOMER_SERVICE_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index SERVICE.CUSTOMER_SERVICE_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('SERVICE')
+            and   type = 'U')
+   drop table SERVICE
 go
 
 if exists (select 1
@@ -286,6 +332,7 @@ create table BILL (
    CUSTOMERID           char(11)             null,
    STAFFID              char(256)            not null,
    BILLPRICE            int                  null,
+   TIMEINVOICE          datetime             null,
    constraint PK_BILL primary key nonclustered (BILLID)
 )
 go
@@ -325,6 +372,7 @@ create table BUYING (
    CUSTOMERID           char(11)             not null,
    MOTOBIKEID           char(20)             not null,
    BUYDATE              datetime             null,
+   PAID                 bit                  null,
    constraint PK_BUYING primary key nonclustered (STAFFID, CUSTOMERID, MOTOBIKEID)
 )
 go
@@ -378,42 +426,45 @@ create table CUSTOMER (
    CUSTOMERNAME         char(255)            null,
    CUSTOMERAGE          int                  null,
    CUSTOMERSEX          bit                  null,
+   CUSTOMERADDRESS      char(255)            null,
    constraint PK_CUSTOMER primary key nonclustered (CUSTOMERID)
 )
 go
 
 /*==============================================================*/
-/* Table: MAINTAINDATE                                          */
+/* Table: MAINTAIN                                              */
 /*==============================================================*/
-create table MAINTAINDATE (
+create table MAINTAIN (
    STAFFID              char(256)            not null,
-   CUSTOMERID           char(11)             not null,
+   SERVICEID            char(256)            not null,
    MOTOBIKEID           char(20)             not null,
-   constraint PK_MAINTAINDATE primary key nonclustered (STAFFID, CUSTOMERID, MOTOBIKEID)
+   MAINTAINDATE         datetime             null,
+   MAINTAININFORMATION  char(256)            null,
+   constraint PK_MAINTAIN primary key nonclustered (STAFFID, SERVICEID, MOTOBIKEID)
 )
 go
 
 /*==============================================================*/
-/* Index: MAINTAINDATE2_FK                                      */
+/* Index: MAINTAIN2_FK                                          */
 /*==============================================================*/
-create index MAINTAINDATE2_FK on MAINTAINDATE (
-CUSTOMERID ASC
+create index MAINTAIN2_FK on MAINTAIN (
+SERVICEID ASC
 )
 go
 
 /*==============================================================*/
-/* Index: MAINTAINDATE3_FK                                      */
+/* Index: MAINTAIN3_FK                                          */
 /*==============================================================*/
-create index MAINTAINDATE3_FK on MAINTAINDATE (
-STAFFID ASC
-)
-go
-
-/*==============================================================*/
-/* Index: MAINTAINDATE_FK                                       */
-/*==============================================================*/
-create index MAINTAINDATE_FK on MAINTAINDATE (
+create index MAINTAIN3_FK on MAINTAIN (
 MOTOBIKEID ASC
+)
+go
+
+/*==============================================================*/
+/* Index: MAINTAIN_FK                                           */
+/*==============================================================*/
+create index MAINTAIN_FK on MAINTAIN (
+STAFFID ASC
 )
 go
 
@@ -443,7 +494,30 @@ create table MOTOBIKE (
    MOTOBIKECOLOR        char(256)            null,
    PRODUCER             char(256)            null,
    YEAR                 int                  null,
+   STATUS               bit                  null,
+   MOTOBIKENAME         char(256)            null,
+   MOTOBIKEPRICE        int                  null,
    constraint PK_MOTOBIKE primary key nonclustered (MOTOBIKEID)
+)
+go
+
+/*==============================================================*/
+/* Table: OPERATIONCOST                                         */
+/*==============================================================*/
+create table OPERATIONCOST (
+   CODE                 char(256)            not null,
+   BRANCHID             char(256)            null,
+   COSTOPERATION        int                  null,
+   TYPEOPERATION        char(256)            null,
+   constraint PK_OPERATIONCOST primary key nonclustered (CODE)
+)
+go
+
+/*==============================================================*/
+/* Index: BRANCH_OPERATIONCOST_FK                               */
+/*==============================================================*/
+create index BRANCH_OPERATIONCOST_FK on OPERATIONCOST (
+BRANCHID ASC
 )
 go
 
@@ -480,6 +554,24 @@ create table SALER (
    SALARY               int                  null,
    POSITION             char(256)            null,
    constraint PK_SALER primary key nonclustered (STAFFID)
+)
+go
+
+/*==============================================================*/
+/* Table: SERVICE                                               */
+/*==============================================================*/
+create table SERVICE (
+   SERVICEID            char(256)            not null,
+   CUSTOMERID           char(11)             null,
+   constraint PK_SERVICE primary key nonclustered (SERVICEID)
+)
+go
+
+/*==============================================================*/
+/* Index: CUSTOMER_SERVICE_FK                                   */
+/*==============================================================*/
+create index CUSTOMER_SERVICE_FK on SERVICE (
+CUSTOMERID ASC
 )
 go
 
@@ -546,24 +638,29 @@ alter table CASHIER
       references STAFF (STAFFID)
 go
 
-alter table MAINTAINDATE
-   add constraint FK_MAINTAIN_MAINTAIND_MOTOBIKE foreign key (MOTOBIKEID)
-      references MOTOBIKE (MOTOBIKEID)
-go
-
-alter table MAINTAINDATE
-   add constraint FK_MAINTAIN_MAINTAIND_CUSTOMER foreign key (CUSTOMERID)
-      references CUSTOMER (CUSTOMERID)
-go
-
-alter table MAINTAINDATE
-   add constraint FK_MAINTAIN_MAINTAIND_MECHANIS foreign key (STAFFID)
+alter table MAINTAIN
+   add constraint FK_MAINTAIN_MAINTAIN_MECHANIS foreign key (STAFFID)
       references MECHANISE (STAFFID)
+go
+
+alter table MAINTAIN
+   add constraint FK_MAINTAIN_MAINTAIN2_SERVICE foreign key (SERVICEID)
+      references SERVICE (SERVICEID)
+go
+
+alter table MAINTAIN
+   add constraint FK_MAINTAIN_MAINTAIN3_MOTOBIKE foreign key (MOTOBIKEID)
+      references MOTOBIKE (MOTOBIKEID)
 go
 
 alter table MECHANISE
    add constraint FK_MECHANIS_INHERITAN_STAFF foreign key (STAFFID)
       references STAFF (STAFFID)
+go
+
+alter table OPERATIONCOST
+   add constraint FK_OPERATIO_BRANCH_OP_BRANCH foreign key (BRANCHID)
+      references BRANCH (BRANCHID)
 go
 
 alter table REGISTER
@@ -574,6 +671,11 @@ go
 alter table SALER
    add constraint FK_SALER_INHERITAN_STAFF foreign key (STAFFID)
       references STAFF (STAFFID)
+go
+
+alter table SERVICE
+   add constraint FK_SERVICE_CUSTOMER__CUSTOMER foreign key (CUSTOMERID)
+      references CUSTOMER (CUSTOMERID)
 go
 
 alter table STAFF
