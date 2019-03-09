@@ -1,0 +1,89 @@
+// bug
+
+- Food doesn't exist => crashed system
+
+
+	//CTime t = CTime::GetCurrentTime();
+	//CString s = t.Format("%m%d%Y");
+	
+=>
+Manager view bill 
+Code for user can register many rooms at one time
+// thong ke xuat hoa don hang thang
+
+select * from branch
+select * from staff
+select * from chef
+select * from cleaner
+select * from receptionist
+select * from register
+select * from customer
+select * from reservation
+select * from foodorder
+select * from food
+
+delete from rentedroom
+delete from usingfood
+delete from invoice
+delete from reservation
+delete from foodorder
+delete from customer
+
+
+///
+1. Login -> go to screen management room -> Click button to select room (ex: room 101) 
+   1.1 For renting room
+		- Get data from GUI ( userID, date,...) 
+		- Create a serverID
+		- Update table
+			+ Customer table
+            + Reservation table
+			+ RentedRoom
+			+ Update status Room table is rented
+            + add Food on GUI
+			+ USINGFOOD
+		- Get price from room table
+	1.2 For view information room
+		- If status room is not empty, I will get data from database ( RentedRoom, Room) based on roomID
+2.  For produce bill
+	2.1 Go to screen checkout
+	2.2 Update data in table Bill ( RentedRoom and Order)
+	2.3 Get data from table Bill to GUI
+	2.4 Updat status room to empty
+3. // for renting by checking date and time
+    3.1 Green button
+	
+	3.2 Utility for support time management, If another reservation for future (Bug) //TODO:
+	
+	3.3 Adding food   
+
+4. For statistics of monthly income ( based on Bill)	
+
+// test for my application and fix bug
+1. Login feature
+2. Manager feature
+3. Receptionist feature
+4. Add more food
+
+5. Renting room
+	4.1 Does not rent food
+	4.2 Rent food
+	
+	4.3 Rent food and food is empty
+	
+	
+	
+
+6. Payment (cancel)
+	
+	
+Enhance1 // for renting by checking date and time	
+
+Enhance2 For rented many room
+    3.1 GUI for renting many room
+    3.2 Payment: Choosing latest room based on smallest day in the order of renting room in RENTEDROOM
+    3.3 
+
+
+
+// Key-Value store in chaper 24 Database

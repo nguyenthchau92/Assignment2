@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Util">
+      <UniqueIdentifier>{473db3b0-9ea1-4614-be33-842553dbf357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DatabaseManagement">
+      <UniqueIdentifier>{ef78ccc1-05ea-4577-8ce3-7204007a5a08}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Source Files\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="DatabaseAppication.h">
+      <Filter>Source Files\DatabaseManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="InvoiceInformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MotobikeStoreManagementDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MotobikeStoreManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MotobikeInformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecificMotobikeInformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BILL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BRANCH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BUYING.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CASHIER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CUSTOMER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MAINTAIN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MECHANISE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MOTOBIKE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="REGISTER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SALER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STAFF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaintainanceInformationDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ManagerManagementDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="DatabaseAppication.cpp">
+      <Filter>Source Files\DatabaseManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="InvoiceInformationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotobikeStoreManagement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotobikeStoreManagementDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotobikeInformationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecificMotobikeInformationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaintainanceInformationDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManagerManagementDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\MotobikeStoreManagement.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\MotobikeStoreManagement.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\honda.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\honda.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\kawasaki.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\yamaha.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MotobikeStoreManagement.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
